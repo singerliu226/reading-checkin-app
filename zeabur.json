@@ -1,0 +1,32 @@
+{
+  "name": "reading-checkin-app",
+  "build": {
+    "buildCommand": "npm run build",
+    "installCommand": "npm install",
+    "outputDirectory": "dist",
+    "framework": "vite"
+  },
+  "environments": {
+    "production": {
+      "variables": {
+        "NODE_ENV": "production",
+        "VITE_SUPABASE_URL": "${VITE_SUPABASE_URL}",
+        "VITE_SUPABASE_ANON_KEY": "${VITE_SUPABASE_ANON_KEY}"
+      }
+    },
+    "development": {
+      "variables": {
+        "NODE_ENV": "development",
+        "VITE_SUPABASE_URL": "${VITE_SUPABASE_URL}",
+        "VITE_SUPABASE_ANON_KEY": "${VITE_SUPABASE_ANON_KEY}"
+      }
+    }
+  },
+  "runtime": {
+    "version": "18"
+  },
+  "routing": {
+    "spa": true,
+    "fallback": "/index.html"
+  }
+} 
