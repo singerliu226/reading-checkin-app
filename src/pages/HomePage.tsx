@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/lib/auth'
 import { useCheckIn } from '@/hooks/useCheckIn'
-import { Book, Timer, User, TrendingUp, Clock, Edit3, Sparkles, Target, Calendar, BookOpen, Play, Pause, Square, ArrowRight, Palette, BarChart3, Zap, Star, Heart, Coffee, Leaf, Wand2 } from 'lucide-react'
+import { Book, Timer, User, TrendingUp, Clock, Edit3, Sparkles, Target, Calendar, BookOpen, Play, Pause, Square, ArrowRight, BarChart3, Zap } from 'lucide-react'
 import { HeatmapCalendar } from '@/components/ui/HeatmapCalendar'
 import { CircularProgress } from '@/components/ui/CircularProgress'
 
@@ -206,68 +206,6 @@ export function HomePage() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
-        {/* 元标签摘要 - 仅在桌面端显示 */}
-        <div className="hidden lg:block mb-8">
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-amber-200 shadow-lg">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center">
-                  <Palette className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-stone-800">模板分类摘要</h3>
-                  <p className="text-sm text-stone-600">共 33 个精美模板</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-1">
-                <Sparkles className="h-4 w-4 text-amber-500" />
-                <span className="text-sm text-amber-600 font-medium">实时更新</span>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                { name: '经典书香', count: 12, icon: BookOpen, color: 'from-amber-500 to-orange-500', percentage: 35 },
-                { name: '现代简约', count: 8, icon: Star, color: 'from-blue-500 to-indigo-500', percentage: 25 },
-                { name: '复古文艺', count: 6, icon: Heart, color: 'from-rose-500 to-pink-500', percentage: 18 },
-                { name: '温馨阅读', count: 5, icon: Coffee, color: 'from-yellow-500 to-amber-500', percentage: 15 },
-                { name: '自然清新', count: 2, icon: Leaf, color: 'from-green-500 to-emerald-500', percentage: 7 }
-              ].map((tag, index) => {
-                const IconComponent = tag.icon
-                return (
-                  <div
-                    key={index}
-                    className={`group relative overflow-hidden rounded-2xl p-4 bg-gradient-to-r ${tag.color} hover:shadow-md hover:scale-102 transition-all duration-300 cursor-pointer`}
-                    onClick={() => navigate('/templates')}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
-                    <div className="relative z-10 flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shrink-0">
-                        <IconComponent className="h-5 w-5 text-white" />
-                      </div>
-
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center space-x-2 mb-1">
-                          <h4 className="font-semibold text-white text-sm truncate">{tag.name}</h4>
-                          <span className="text-xs bg-white/20 backdrop-blur-sm text-white px-2 py-1 rounded-full">
-                            {tag.count}
-                          </span>
-                        </div>
-                        <div className="w-full h-1 bg-white/20 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-white/80 rounded-full transition-all duration-1000 ease-out"
-                            style={{ width: `${tag.percentage}%` }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
         
         {/* 主要计时器区域 - 增强视觉效果 */}
         <div className="w-full max-w-4xl mx-auto mb-8">
@@ -574,7 +512,7 @@ export function HomePage() {
               className="bg-white/80 hover:bg-white/90 backdrop-blur-sm py-4 px-4 rounded-2xl flex flex-col items-center justify-center transition-all duration-300 border border-amber-200 shadow-lg group hover:shadow-xl hover:scale-102"
             >
               <div className="p-3 bg-gradient-to-r from-violet-400 to-purple-500 rounded-xl group-hover:scale-110 transition-transform mb-2">
-                <Palette className="h-5 w-5 text-white" />
+                <Sparkles className="h-5 w-5 text-white" />
               </div>
               <span className="font-medium text-stone-700 text-sm text-center">选择样式</span>
             </button>
